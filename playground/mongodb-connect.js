@@ -6,27 +6,27 @@
     }
     console.log("Connected to MongoDB Server");
     const db = client.db('TodoApp');
-    // db.collection('Todos').insertOne({
-    //   text:'Something todo',
-    //   completed: false
-    // }, (err, result) => {
-    //    if(err){
-    //      return console.log('Unable to insert into Todo', err);
-    //    }
-    //    console.log(JSON.stringify(result.ops, undefined, 2));
-    // });
-
-    db.collection('Users').insertOne({
-      name:"Aarav",
-      age:3,
-      location:"Plano-Texas"
+    db.collection('Todos').insertOne({
+      text:'Walk Dog',
+      completed: true
     }, (err, result) => {
        if(err){
-         return console.log("Unable to insert into Users collection", err);
+         return console.log('Unable to insert into Todo', err);
        }
-      // console.log(JSON.stringify(result.ops, undefined, 2));
-      console.log(result.ops);
+       console.log(JSON.stringify(result.ops, undefined, 2));
     });
+
+    // db.collection('Users').insertOne({
+    //   name:"Aarav",
+    //   age:3,
+    //   location:"Plano-Texas"
+    // }, (err, result) => {
+    //    if(err){
+    //      return console.log("Unable to insert into Users collection", err);
+    //    }
+    //   // console.log(JSON.stringify(result.ops, undefined, 2));
+    //   console.log(result.ops);
+    // });
 
     client.close();
  });
